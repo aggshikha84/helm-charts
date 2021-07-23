@@ -37,14 +37,14 @@ job:
 
 pv:
   capacity:
-    storage: 3Gi
+    storage: 100Mi
   accessMode: ReadWriteMany
   hostPath:
     path: "/var/lib/mysql/alpha"
 pvc:
   resources:
     requests:
-      storage: 1Gi
+      storage: 100Mi
 
 storageClass:
   provisioner: k8s.io/minikube-hostpath
