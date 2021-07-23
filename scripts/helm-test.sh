@@ -6,7 +6,10 @@ NAMESPACE=$1
 RELEASE_NAME="$2"
 
 kubectl config get-contexts
-kubectl create ns "$NAMESPACE"
+
+kubectl get ns "$NAMESPACE" &> /dev/null || kubectl create ns "$NAMESPACE"
+
+
 kubectl config set-context --current --namespace "$NAMESPACE"
 helm lint pages
 helm template pages
